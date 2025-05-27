@@ -1,1 +1,0 @@
-# 🚀Linguagem Raku - Elementos Léxicos
