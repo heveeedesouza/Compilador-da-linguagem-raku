@@ -1,5 +1,46 @@
 # 🚀Linguagem Raku - Elementos Léxicos
 
+## 1. Palavras reservadas
+A linguagem de programação Raku possui uma ampla gama de palavra reservadas que abordam controle de fluxo, declaração de tipos, manipulação de objetos, regexes(expressões regulares), entre outros. Como não há uma lista definida das palavra reservadas nessa linguagem, a estruturação que será realizada nesse contexto lexico será organizada em categorias, das mais usadas para as palavras com propósitos específicos, para que possa ser possível uma melhor compreensão.
+
+### 1.1 Palavras Reservadas mais comuns
+Estas são amplamente utilizadas em programas Raku:
+
+- Controle de Fluxo: `if`, `else`, `elsif`, `unless`, `when`, `given`, `while`, `for`, `loop`, `repeat`, `do`, `next`, `last`, `redo`, `return`, `exit`, `die`, `try`, `CATCH`, `LEAVE`, `KEEP`, `UNDO`, `CONTROL`, `NEXT`, `LAST`, `REDO`, `BREAK`, `CONTINUE`
+
+- Declaração de variáveis e escopo: `my`, `our`, `has`, `state`, `constant`, `let`
+
+- Definição de sub-rotinas e métodos: `sub`, `method`, `multi`, `proto`, `is`, `does`, `only`, `also`
+
+- Orientação a objetos: `class`, `role`, `module`, `package`, `enum`
+
+- Tipos e valores especiais: `Any`, `Mu`, `Nil`, `True`, `False`, `Int`, `Str`, `Pair`, `List`, `Map`, `Set`, `Bag`
+
+- Operadores e metacaracteres: `and`, `or`, `not`, `xor`, `div`, `mod`, `eq`, `le`
+
+### 1.2 Palavras Reservadas intermediárias
+Estas são usadas em contextos mais específicos ou avançados:
+
+- Fases de execução: `BEGIN`, `CHECK`, `INIT`, `START`, `FIRST`, `ENTER`, `LEAVE`, `KEEP`, `UNDO`, `NEXT`, `LAST`, `PRE`, `POST`, `END`, `CLOSE`, `TEMP`, `UNITCHECK`
+
+- Manipulação de exceções: `try`, `CATCH`, `CONTROL`, `warn`, `die`, `fail`, `note`
+
+- Regex e gramáticas: `regex`, `token`, `rule`, `grammar`, `make`, `take`, `gather`, `given`, `when`
+
+- Declarações de importação e compilação: `use`, `require`, `need`, `import`, `export`, `unit`, `trusts`, `augment`, `supersede`
+
+- Outros: `do`, `given`, `with`, `without`, `unless`, `until`, `repeat`, `redo`, `break`, `continue`, `return`, `fail`, `LEAVE`, `KEEP`, `UNDO`, `CONTROL`, `NEXT`, `REDO`, `BREAK`, `CONTINUE`
+
+### 1.3 Palavras Reservadas especializadas
+
+Estas são utilizadas em casos muito específicos ou avançados:
+
+- Metaprogramação e introspecção: `augment`, `trusts`, `supersede`, `meta`, `HOW`, `WHAT`, `WHERE`, `WHO`, `WHENCE`, `WHY`
+
+- Manipulação de threads e concorrência: `await`, `start`, `race`, `hyper`, `react`, `whenever`, `supply`, `emit`, `done`
+
+- Manipulação de tempo e eventos: `sleep`, `now`, `time`, `Date`, `DateTime`, `Instant`, `Duration`, `Time`
+  
 ## 2. Operadores
 
 ### 2.1. Operadores comuns
