@@ -43,7 +43,7 @@ Observação: **Infix** refere-se a um **operador** que aparece entre dois **ope
 | ^..^     | Infix   | Construtor de Sequências                      | 0^..^5        | Cria uma série de 1 a 4 |
 | ^        | Prefix  | Construtor de Sequências                      | ^5            | Cria uma série de 0 a 4 |
 | …​       | Infix   | Construtor de Listas Preguiçosas (Lazy Lists) | 0…​9999       | Retorna os elementos só quando pedido |
-| |        | Prefix  | Achatamento (Flattening)                      | |(0..5)       | (0 1 2 3 4 5) |
+
 
 ### 2.2. Operadores Reversos  
 Adicionar um `R` antes de qualquer operador tem o efeito de inverter seus operandos.
