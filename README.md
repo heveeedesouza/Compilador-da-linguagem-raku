@@ -10,8 +10,8 @@ O objetivo deste projeto é proporcionar uma experiência prática e aprofundada
 
 Este projeto foi desenvolvido por:  
 - 👨‍💻 [**Lucas Cunha Almeida**](https://github.com/LucasCunhaAlmeida)  
-- 👩‍💻 [**Alanna Rayssa de Oliveira Santos**](#) _(Link não fornecido)_  
-- 👩‍💻 [**Hevellyn de Souza Alves**](https://github.com/HeveAlves)  
+- 👩‍💻 [**Alanna Rayssa de Oliveira Santos**](https://github.com/alannarayssaa)  
+- 👩‍💻 [**Hevellyn de Souza Alves**](https://github.com/heveeedesouza)  
 - 👨‍💻 [**Felipe da Silva Souza**](https://github.com/Miyamura1101)  
 - 👩‍💻 [**Lorena Pereira Nascimento**](https://github.com/Lorena-pn)  
 
