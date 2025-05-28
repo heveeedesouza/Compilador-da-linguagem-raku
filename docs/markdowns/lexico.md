@@ -60,3 +60,6 @@ Operadores de redução trabalham com listas de valores. Eles são formados colo
 |:--------------:|:---------:|:------------------:|:---------:|
 | 1 + 2 + 3 + 4 + 5 | 15      | [+] 1,2,3,4,5     | 15        |
 | 1 * 2 * 3 * 4 * 5 | 120     | [*] 1,2,3,4,5     | 120       |
+
+## 3. Delimitadores
+Comandos em Raku utilizam ; como delimitador. Parâmetros de funções utilizam , como delimitador. Adicionalmente, Raku utiliza os delimitadores () para expressões e chamadas de função. Por fim, também são utilizados os delimitadores {} para blocos de comandos.
