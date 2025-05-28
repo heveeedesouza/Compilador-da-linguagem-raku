@@ -68,18 +68,19 @@ Comandos em Raku utilizam ; como delimitador. Parâmetros de funções utilizam 
 Raku oferece suporte a diversos tipos numéricos como inteiros, números racionais, de ponto flutuante e complexos. Os inteiros (Int) não possuem limite de tamanho, permitindo cálculos com números extremamente grandes. Números racionais (Rat) são representados como frações exatas, evitando erros de arredondamento comuns em outras linguagens. Números de ponto flutuante (Num) são usados para aproximações de valores reais, enquanto números complexos (Complex) permitem operações com componentes imaginários.
 Raku realiza conversões automáticas entre tipos quando necessário, mas também permite conversões explícitas usando métodos como .Int, .Rat, .Num e .Complex.
 
-| Tipo | Descrição | Exemplo |
-|:-----:|:|:-------:|:-------:|
-| Int   | Inteiros sem limite de tamanho | 1234567890123 |  
-| Rat   | Racional | 3/4, 0.5.Rat |
-| Num   | Ponto flutuante | 3.14, 2e10 |
-| Complex| Número com parte imaginária | 2+3i, Num.sqrt(-1) |
+| Tipo    | Descrição                         | Exemplo              |
+|:-------:|:----------------------------------|:---------------------|
+| Int     | Inteiros sem limite de tamanho    | 1234567890123        |
+| Rat     | Racional                          | 3/4, 0.5.Rat         |
+| Num     | Ponto flutuante                   | 3.14, 2e10           |
+| Complex | Número com parte imaginária       | 2+3i, Num.sqrt(-1)   |
 
 ## 5. Erros
 Raku possui um sistema detalhado para tratamento de erros, incluindo erros de sintaxe (detectados durante a compilação), erros de tempo de execução (como variáveis não declaradas ou operações inválidas) e exceções (erros que podem ser capturados e tratados programaticamente).
 As exceções em Raku são objetos que herdam da classe Exception e podem ser tratadas usando blocos try e CATCH e para lidar com erros, é recomendado capturar apenas exceções específicas, fornecer mensagens claras de erro e validar entradas antes de realizar operações críticas, o uso de tipos numéricos adequados e verificações explícitas pode prevenir muitos erros comuns em operações matemáticas.
 
-Exemplo:
+Exemplo: Esse código trata de forma segura uma divisão por zero.
+```raku
 my $x = 0;
 try {
     my $r = 10 / $x;
@@ -89,4 +90,4 @@ try {
         }
     }
 }
-Esse código trata de forma segura uma divisão por zero.
+
