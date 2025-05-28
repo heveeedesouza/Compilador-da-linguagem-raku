@@ -26,8 +26,6 @@ Este projeto foi desenvolvido por:
 
 ## 📂 Estrutura do Projeto  
 
-## 3.Delimitadores
-Comandos em Raku utilizam ; como delimitador. Parâmetros de funções utilizam , como delimitador. Adicionalmente, Raku utiliza os delimitadores () para expressões e chamadas de função. Por fim, também são utilizados os delimitadores {} para blocos de comandos.
 
 ```plaintext
 📂 Compilador-da-linguagem-raku  
