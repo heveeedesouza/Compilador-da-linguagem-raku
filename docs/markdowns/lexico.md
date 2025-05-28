@@ -1,1 +1,62 @@
 # 🚀Linguagem Raku - Elementos Léxicos
+
+## 2. Operadores
+
+### 2.1. Operadores comuns
+A linguagem Raku possui diversos operadores, e os mais comuns serão listados logo abaixo.  
+Observação: **Infix** refere-se a um **operador** que aparece entre dois **operandos**. Já o **Prefix** indica um **operador** que precede o **operando**. Por fim, o **Postfix** designa um **operador** que aparece após o **operando**. 
+| Operador | Tipo     | Descrição                                      | Exemplo       | Resultado      |
+|:----------:|:---------:|:------------------------------------------------:|:---------------:|:---------------:|
+| +        | Infix   | Adição                                         | 1 + 2         | 3             |
+| -        | Infix   | Subtração                                      | 3 - 1         | 2             |
+| *        | Infix   | Multiplicação                                  | 3 * 2         | 6             |
+| **       | Infix   | Potência                                       | 3 ** 2        | 9             |
+| /        | Infix   | Divisão                                        | 3 / 2         | 1.5           |
+| div      | Infix   | Divisão inteira (arredonda para baixo)        | 3 div 2       | 1             |
+| %        | Infix   | Módulo                                        | 7 % 4         | 3             |
+| %%       | Infix   | Divisibilidade                                | 6 %% 4        | False         |
+| gcd      | Infix   | Máximo denominador comum (mdc)               | 6 gcd 9       | 3             |
+| lcm      | Infix   | Menor múltiplo comum (mmc)                    | 6 lcm 9       | 18            |
+| ==       | Infix   | Igualdade numérica                            | 9 == 7        | False         |
+| !=       | Infix   | Diferente numérico                            | 9 != 7        | True          |
+| <        | Infix   | Menor que                                     | 9 < 7         | False         |
+| >        | Infix   | Maior que                                     | 9 > 7         | True          |
+| <=       | Infix   | Menor ou igual a                              | 7 <= 7        | True          |
+| >=       | Infix   | Maior ou igual a                              | 9 >= 7        | True          |
+| eq       | Infix   | Igualdade de string                          | "João" eq "João" | True      |
+| ne       | Infix   | Diferença de string                          | "João" ne "Joana" | True      |
+| =        | Infix   | Atribuição                                    | my $var = 7   | Atribui o valor 7 à variável $var |
+| ~        | Infix   | Concatenação de strings                      | "Oi " ~ "pessoal" | Oi pessoal |
+| x        | Infix   | Replicação de strings                        | "Olá " x 3    | Olá Olá Olá   |
+| ~~       | Infix   | Smart match (equivalência inteligente)       | "Raku" ~~ Str | True          |
+| ++       | Prefix  | Incremento                                    | my $var = 2; ++$var; | 3 |
+| ++       | Postfix | Incremento                                    | my $var = 2; $var++; | 2 |
+| --       | Prefix  | Decremento                                    | my $var = 2; --$var; | 1 |
+| --       | Postfix | Decremento                                    | my $var = 2; $var--; | 2 |
+| +        | Prefix  | Força o operando para um valor numérico       | +"3"          | 3 |
+| -        | Prefix  | Força o operando para um valor numérico e retorna sua negação | -"3" | -3 |
+| ?        | Prefix  | Força o operando para um valor booleano       | ?0            | False |
+| !        | Prefix  | Força o operando para um valor booleano e retorna sua negação | !4 | False |
+| ..       | Infix   | Construtor de Sequências                      | 0..5          | Cria uma série de 0 a 5 |
+| ..^      | Infix   | Construtor de Sequências                      | 0..^5         | Cria uma série de 0 a 4 |
+| ^..      | Infix   | Construtor de Sequências                      | 0^..5         | Cria uma série de 1 a 5 |
+| ^..^     | Infix   | Construtor de Sequências                      | 0^..^5        | Cria uma série de 1 a 4 |
+| ^        | Prefix  | Construtor de Sequências                      | ^5            | Cria uma série de 0 a 4 |
+| …​       | Infix   | Construtor de Listas Preguiçosas (Lazy Lists) | 0…​9999       | Retorna os elementos só quando pedido |
+| |        | Prefix  | Achatamento (Flattening)                      | |(0..5)       | (0 1 2 3 4 5) |
+
+### 2.2. Operadores Reversos  
+Adicionar um `R` antes de qualquer operador tem o efeito de inverter seus operandos.
+
+| Operação Normal | Resultado | Operador Reverso | Resultado |
+|:--------------:|:---------:|:---------------:|:---------:|
+| 2 / 3         | 0.666667  | 2 R/ 3          | 1.5       |
+| 2 - 1         | 1         | 2 R- 1          | -1        |
+
+### 2.3. Operadores de Redução  
+Operadores de redução trabalham com listas de valores. Eles são formados colocando o operador entre colchetes `[]`.
+
+| Operação Normal | Resultado | Operador de Redução | Resultado |
+|:--------------:|:---------:|:------------------:|:---------:|
+| 1 + 2 + 3 + 4 + 5 | 15      | [+] 1,2,3,4,5     | 15        |
+| 1 * 2 * 3 * 4 * 5 | 120     | [*] 1,2,3,4,5     | 120       |
