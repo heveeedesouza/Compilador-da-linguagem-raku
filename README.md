@@ -26,9 +26,12 @@ Este projeto foi desenvolvido por:
 
 ## 📂 Estrutura do Projeto  
 
+
 ```plaintext
 📂 Compilador-da-linguagem-raku  
  ├── 📁 docs (Documentação do projeto)  
  ├── 📁 src (Código-fonte do compilador)  
  ├── 📁 markdowns (Documentação da linguagem)  
  ├── 📜 README.md (Este documento)  
+
+
