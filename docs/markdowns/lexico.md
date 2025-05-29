@@ -131,6 +131,18 @@ try {
         }
     }
 }
-
+```
 ## 6. Identificadores
-Raku é um pouco diferente para nomeação de termos. As regras são: devem começar com um caractere alfabético ou um sublinhado; podem conter dígitos (exceto o primeiro caractere); e podem conter traços ou apóstrofos (exceto o primeiro e o último caractere), desde que haja um caractere alfabético ao lado direito de cada traço ou apóstrofo. Exemplos válidos: "var1", "var-one", "var'one", "var1_", "_var". 
+
+Em Raku, os identificadores seguem estas regras:
+
+- Devem começar com um caractere alfabético ou um sublinhado (`_`).
+- Podem conter dígitos, mas não podem começar com um dígito.
+- Podem incluir traços (`-`) ou apóstrofos (`'`), mas:
+  - Não podem estar no início ou no final.
+  - Devem ter um caractere alfabético à direita.
+
+**Exemplos válidos:** `var1`, `var-one`, `var'one`, `var1_`, `_var`
+
+**Exemplos inválidos:** `1var` (começa com dígito), `-var` (começa com traço), `var-` (termina com traço), `var-1` (número à direita do traço), `var'1` (número à direita do apóstrofo), `var1'` (termina com apóstrofo)
+
