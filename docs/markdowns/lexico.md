@@ -132,3 +132,5 @@ try {
     }
 }
 
+## 6. Identificadores
+Raku é um pouco diferente para nomeação de termos. As regras são: devem começar com um caractere alfabético ou um sublinhado; podem conter dígitos (exceto o primeiro caractere); e podem conter traços ou apóstrofos (exceto o primeiro e o último caractere), desde que haja um caractere alfabético ao lado direito de cada traço ou apóstrofo. Exemplos válidos: "var1", "var-one", "var'one", "var1_", "_var". 
