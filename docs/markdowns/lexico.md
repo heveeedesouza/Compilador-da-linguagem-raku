@@ -83,7 +83,6 @@ Observação: **Infix** refere-se a um **operador** que aparece entre dois **ope
 | ^..      | Infix   | Construtor de Sequências                      | 0^..5         | Cria uma série de 1 a 5 |
 | ^..^     | Infix   | Construtor de Sequências                      | 0^..^5        | Cria uma série de 1 a 4 |
 | ^        | Prefix  | Construtor de Sequências                      | ^5            | Cria uma série de 0 a 4 |
-| …​       | Infix   | Construtor de Listas Preguiçosas (Lazy Lists) | 0…​9999       | Retorna os elementos só quando pedido |
 
 
 ### 2.2. Operadores Reversos  
