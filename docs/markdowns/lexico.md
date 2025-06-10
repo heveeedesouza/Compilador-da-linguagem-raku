@@ -101,8 +101,15 @@ Operadores de redução trabalham com listas de valores. Eles são formados colo
 | 1 + 2 + 3 + 4 + 5 | 15      | [+] 1,2,3,4,5     | 15        |
 | 1 * 2 * 3 * 4 * 5 | 120     | [*] 1,2,3,4,5     | 120       |
 
-## 3. Delimitadores
-Comandos em Raku utilizam ; como delimitador. Parâmetros de funções utilizam , como delimitador. Adicionalmente, Raku utiliza os delimitadores () para expressões e chamadas de função. Por fim, também são utilizados os delimitadores {} para blocos de comandos.
+## 3.Delimitadores
+Delimitadores são símbolos usados para definir limites em diferentes contextos dentro do código. Em Raku são usados da seguinte forma:
+
+| Tipo de Delimitador         | Símbolos  | Utilização                                      | Exemplo                          |
+|----------------------------|------------|--------------------------------------------------|----------------------------------|
+| Final de comando           | `;`        | Indica o fim de uma instrução                    | `say "Olá, mundo!";`             |
+| Parâmetros de função       | `,`        | Separa os parâmetros dentro de uma função        | `soma(1, 2, 3)`                  |
+| Expressões e chamadas      | `()`       | Delimita expressões e chamadas de função         | `my $resultado = (2 + 3) * 4;`   |
+| Blocos de comandos         | `{}`       | Agrupa instruções em um bloco de código          | `if $x > 0 { say "LFT" }`   |
 
 ## 4. Números
 A linguagem Raku oferece suporte a diversos tipos numéricos como inteiros, números racionais, de ponto flutuante e complexos. Os inteiros (Int) não possuem limite de tamanho, permitindo cálculos com números extremamente grandes. Números racionais (Rat) são representados como frações exatas, evitando erros de arredondamento comuns em outras linguagens. Números de ponto flutuante (Num) são usados para aproximações de valores reais, enquanto números complexos (Complex) permitem operações com componentes imaginários.
