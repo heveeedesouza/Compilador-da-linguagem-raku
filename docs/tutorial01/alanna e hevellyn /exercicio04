@@ -1,0 +1,34 @@
+import ply.lex as lex
+
+# Definindo Tokens e seus padroes
+tokens = ("PLUS", "MINUS", "ID", "NUMBER", "NUMBERFLOAT")
+t_PLUS    = r'\+'
+t_MINUS   = r'-'
+t_ID = r'[_A-Za-z][_A-Za-z0-9]*'
+t_ignore  = ' \t'
+
+def t_newline(t): #Adiciona a função t_newline
+     r'\n+'
+     t.lexer.lineno += len(t.value) #Atualiza o contador de linha a
+                                    #depender da quantidade de \n
+
+def t_NUMBERFLOAT(t):
+     r'\d+\.\d+'
+     t.value = float(t.value)    
+     return t
+
+def t_NUMBER(t):
+     r'\d+'
+     t.value = int(t.value)    
+     return t
+
+def t_error(t):
+  print("Caractere ilegal '%s'" % t.value[0])
+  t.lexer.skip(1)
+
+
+lexer = lex.lex()
+lexer.input("+  - --+ 7 + 1.7 +\nestada")
+print('{:12s}{:12s}{:12s}{:12s}'.format("Token", "Lexema", "Linha", "Coluna"))
+for tok in lexer:
+  print('{:12s}{:12s}{:12s}{:12s}'.format(tok.type, str(tok.value), str(tok.lineno), str(tok.lexpos)))
