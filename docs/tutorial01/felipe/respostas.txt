@@ -1,0 +1,95 @@
+Questão 2 
+
+WARNING: No t_error rule is defined
+Token     Lexema    Linha     Coluna    
+PLUS      +         1         0         
+MINUS     -         1         1         
+MINUS     -         1         2         
+PLUS      +         1         3         
+PLUS      +         1         4         
+MINUS     -         1         5
+
+ - Primeiramente é mostrado um aviso que a função t_erro não foi definida. Além disso está sendo 
+   impresa uma tabela que mostra de forma clara e coesa os Token e os
+   seu repectivo Lexema, como por exemplo PLUS é um Token que está referenciando o Lexema +.
+
+Questão 3
+
+WARNING: No t_error rule is defined
+Token     Lexema    Linha     Coluna    
+PLUS      +         1         0         
+MINUS     -         1         1         
+MINUS     -         1         2         
+Traceback (most recent call last):
+  File "/root/Python/Lexico/Exercicio_1/Compilador-da-linguagem-raku/docs/tutorial01/Felipe/exemplo01.py", line 14, in <module>
+    for tok in lexer:
+  File "/root/Python/Lexico/Exercicio_1/Love/lib/python3.12/site-packages/ply/lex.py", line 419, in next
+    t = self.token()
+        ^^^^^^^^^^^^
+  File "/root/Python/Lexico/Exercicio_1/Love/lib/python3.12/site-packages/ply/lex.py", line 396, in token
+    raise LexError("Illegal character '%s' at index %d" % (lexdata[lexpos], lexpos), lexdata[lexpos:])
+ply.lex.LexError: Illegal character ' ' at index 3
+
+ - Esse erro está ocorrendo, pois como a função t_ignore ainda não foi declarada, dessa forma o analizador Lexico ainda não sabe como 
+   reagir quando ele encontra um Lexema em branco.
+
+
+Questão 4
+
+WARNING: No t_error rule is defined
+Token     Lexema    Linha     Coluna    
+PLUS      +         1         0         
+MINUS     -         1         4         
+MINUS     -         1         6         
+MINUS     -         1         7         
+PLUS      +         1         8         
+PLUS      +         1         11        
+PLUS      +         1         14
+
+ - O ponto mais importante que foi alterado no codigo é a adição do Token t_ignore, que realiza a função
+   de ignorar os espaço em branco, os \n e \t. Tecnicamente falando as linhas está com os valores errados, 
+   pois como agora é considerado a quebra de linha(\n) é necessaria a mudança no o valor da linha.
+
+Questão 5
+
+WARNING: No t_error rule is defined
+Token     Lexema    Linha     Coluna    
+PLUS      +         1         0         
+MINUS     -         2         4         
+MINUS     -         2         6         
+MINUS     -         2         7         
+PLUS      +         2         8         
+PLUS      +         3         11        
+PLUS      +         3         14 
+
+ - Sim, agora estão.
+
+Questão 7
+
+WARNING: No t_error rule is defined
+PLUS + 1 0
+MINUS - 1 3
+MINUS - 1 5
+MINUS - 1 6
+PLUS + 1 7
+PLUS + 1 9
+PLUS + 1 12
+ID estada 2 14
+
+Questão 11
+
+lft
+muito
+legal
+error in INITIAL state, 3
+error in INITIAL state, 3
+error in INITIAL state, 2
+error in INITIAL state, 2
+34423
+error in foo state, a
+error in foo state, m
+error in foo state, e
+error in foo state, r
+
+ - Sim, a entrada fornecida apresenta erro lexico. Isso ocorre porque o estado INITIAL não possui capasidade de 
+   interpretar, de forma lexica, tokens de numero e o estado foo não consegue interpretar letras
