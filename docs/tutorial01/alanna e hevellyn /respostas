@@ -1,0 +1,44 @@
+WARNING: No t_error rule is defined
+Token     Lexema    Linha     Coluna    
+PLUS      +         1         0         
+MINUS     -         1         1         
+MINUS     -         1         2         
+PLUS      +         1         3         
+PLUS      +         1         4         
+MINUS     -         1         5         
+
+resposta 02- após a execução ele printou os tokens que são plus e minus e delimitou seus lexemas, linhas e colunas.
+resposta 03- a execução não foi bem sucedida devido o espaço em branco já que não tinha nenhuma regra para delimitar.
+resposta 04- mudou a contagem das linhas e colunas,as linhas era para mudar e a coluna não era para contar os espaços em branco e as quebras de linha.
+Token     Lexema    Linha     Coluna    
+PLUS      +         1         0         
+MINUS     -         1         4         
+MINUS     -         1         6         
+MINUS     -         1         7         
+PLUS      +         1         8         
+PLUS      +         1         11        
+PLUS      +         1         14  
+resposta 05- sim
+resposta07- 
+WARNING: No t_error rule is defined
+PLUS + 1 0
+MINUS - 1 3
+MINUS - 1 5
+MINUS - 1 6
+PLUS + 1 7
+PLUS + 1 9
+PLUS + 1 12
+ID estada 2 14
+
+resposta11- lft
+muito
+legal
+error in INITIAL state, 3
+error in INITIAL state, 3
+error in INITIAL state, 2
+error in INITIAL state, 2
+34423
+error in foo state, a
+error in foo state, m
+error in foo state, e
+error in foo state, r
