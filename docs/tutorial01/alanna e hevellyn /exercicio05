@@ -1,0 +1,40 @@
+import ply.lex as lex
+
+tokens = ('NUMBER', 'WORD')
+states = (('foo', 'exclusive'), )
+
+t_WORD = r'[a-zA-Z]+'
+t_ignore = ' \t'
+t_foo_ignore = ' \t'
+t_foo_NUMBER = r'\d+'  # Reconhece 'NUMBER' no estado 'foo'
+
+
+def t_foo_newline(t):  #Reconhece quebra de linha no estado foo.
+  r'\n'
+  t.lexer.lineno += 1
+
+
+def t_error(t):
+  print('error in INITIAL state, %s' % t.value[0])
+  t.lexer.skip(1)
+
+
+def t_foo_error(t):
+  print('error in foo state, %s' % t.value[0])
+  t.lexer.skip(1)
+
+
+def t_begin_foo(t):
+  r'<foo>'
+  t.lexer.begin('foo')
+
+
+def t_foo_end_foo(t):
+  r'\</foo\>'
+  t.lexer.begin('INITIAL')
+
+
+lexer = lex.lex()
+lex.input("lft  muito legal 3322 <foo> 34423 amer </foo>")
+for l in lexer:
+  print(l.value)
