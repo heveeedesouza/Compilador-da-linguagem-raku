@@ -1,8 +1,59 @@
 import ply.lex as lex     #importa módulo ply.lex e o renomeia para lex
 
 # Definindo Tokens e padroes
-tokens = ('ADC','DIV','IGUAL_DP','MAIOR_IGL','ADC_DP','SUB','MOD','DIF','IGUAL','DECREMENTO','POW','MT','KMARK','LPAREN','RPAR','COMMA','STRING','FLOAT','INTEGER','BOOLEAN', 'COMMENT','ID','MULT', 'DIVI', 'MENOR','CONC', 'NEGAC','DIVIDE','LCM','LESSEQUAL', 'REPLICARSTRING','UNARYMINUS','SMARTMATCH')
+tokens = ['ADC','DIV','IGUAL_DP','MAIOR_IGL','ADC_DP','SUB','MOD','DIF','IGUAL','DECREMENTO','POW','MT','KMARK','LPAREN','RPAR','COMMA','STRING','FLOAT','INTEGER','BOOLEAN', 'COMMENT','ID','MULT', 'DIVI', 'MENOR','CONC', 'NEGAC','DIVIDE','LCM','LESSEQUAL', 'REPLICARSTRING','UNARYMINUS','SMARTMATCH']
 
+id_reservados = { 
+  'if': 'IF',
+    'else': 'ELSE',
+    'elsif': 'ELSIF',
+    'while': 'WHILE',
+    'loop': 'LOOP',
+    'next': 'NEXT',
+    'last': 'LAST',
+    'redo': 'REDO',
+    'return': 'RETURN',
+    'exit': 'EXIT',
+    'break': 'BREAK',
+    'my': 'MY',
+    'our': 'OUR',
+    'has': 'HAS',
+    'state': 'STATE',
+    'constant': 'CONSTANT',
+    'let': 'LET',
+    'sub': 'SUB',
+    'multi': 'MULTI',
+    'only': 'ONLY',
+    'class': 'CLASS',
+    'role': 'ROLE',
+    'module': 'MODULE',
+    'package': 'PACKAGE',
+    'Any': 'ANY',
+    'Mu': 'MU',
+    'Nil': 'NIL',
+    'True': 'TRUE',
+    'False': 'FALSE',
+    'Int': 'INT',
+    'Str': 'STR',
+    'Pair': 'PAIR',
+    'List': 'LIST',
+    'Map': 'MAP',
+    'Set': 'SET',
+    'Bag': 'BAG',
+    'and': 'AND',
+    'or': 'OR',
+    'not': 'NOT',
+    'xor': 'XOR',
+    'require': 'REQUIRE',
+    'need': 'NEED',
+    'use': 'USE',
+    'unit': 'UNIT',
+    'import': 'IMPORT',
+    'export': 'EXPORT',
+}
+
+# Adiciona os tokens das palavras reservadas à lista principal de tokens
+tokens += list(id_reservados.values())
 # Não foi realizado a implementação das seguintes tokens:
 # # t_GDC = r'gdc'
 # t_EQ = r'eq'
@@ -68,20 +119,20 @@ def t_COMMENT(t):
   return None  # Ignora comentários
 
 def t_ID(t):
-  r'[a-zA-Z_](?:[a-zA-Z0-9_]*([\'-](?!\d|\Z)[a-zA-Z_][a-zA-Z0-9_]*)?)*' # Não sei como eu posso colocar o ' ou -
-  t.type = 'ID'
+  r'[a-zA-Z_](?:[a-zA-Z0-9_]*([\'-](?!\d|\Z)[a-zA-Z_][a-zA-Z0-9_]*)?)*'
+  t.type = id_reservados.get(t.value, 'ID')  # Verifica se é palavra reservada
   return t
 
 def t_newline(t):
-    r'\n+'
-    t.lexer.lineno += len(t.value)
+  r'\n+'
+  t.lexer.lineno += len(t.value)
 
 def t_error(t):
   print("Caractere ilegal '%s'" % t.value[0])
   t.lexer.skip(1)
 
 lexer = lex.lex()  # Cria o analisador léxico
-lexer.input("'Ola lucas #*'")  # Define a entrada do analisador léxico
+lexer.input("if while str False")  # Define a entrada do analisador léxico
 
 # Realizando analise lexica
 print('{:10s}{:10s}{:10s}{:10s}'.format("Token", "Lexema", "Linha", "Coluna"))
