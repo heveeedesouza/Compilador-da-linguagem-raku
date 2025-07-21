@@ -24,10 +24,6 @@ id_reservados = {
     'sub': 'SUB',
     'multi': 'MULTI',
     'only': 'ONLY',
-    'class': 'CLASS',
-    'role': 'ROLE',
-    'module': 'MODULE',
-    'package': 'PACKAGE',
     'Any': 'ANY',
     'Mu': 'MU',
     'Nil': 'NIL',
@@ -132,9 +128,11 @@ def t_error(t):
   t.lexer.skip(1)
 
 lexer = lex.lex()  # Cria o analisador léxico
-lexer.input("if while str False")  # Define a entrada do analisador léxico
+lexer.input("if while str False my our")  # Define a entrada do analisador léxico
 
 # Realizando analise lexica
 print('{:10s}{:10s}{:10s}{:10s}'.format("Token", "Lexema", "Linha", "Coluna"))
 for tok in lexer:
   print('{:10s}{:10s}{:10s}{:10s}'.format(tok.type, tok.value, str(tok.lineno), str(tok.lexpos))) 
+
+# def ID ( ){
