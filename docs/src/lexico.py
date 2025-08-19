@@ -1,14 +1,20 @@
 import ply.lex as lex     #importa módulo ply.lex e o renomeia para lex
 
 # Definindo Tokens e padroes
-tokens = ['ADC','DIV','IGUAL_DP','MAIOR_IGL','ADC_DP','SUB','MOD','DIF','IGUAL','DECREMENTO','POW','MT','KMARK','LPAREN','RPAR','COMMA','STRING','FLOAT','INTEGER','BOOLEAN', 'COMMENT','ID','MULT', 'DIVI', 'MENOR','CONC', 'NEGAC','DIVIDE','LCM','LESSEQUAL', 'REPLICARSTRING','UNARYMINUS','SMARTMATCH']
+tokens = ['ADC','LIST','DIV','IGUAL_DP','MAIOR_IGL','ADC_DP','SUB','MOD','DIF','IGUAL',
+          'DECREMENTO','POW','MAIOR','KMARK','LPAREN','RPAREN','COMMA','STRING','FLOAT',
+          'INTEGER','BOOLEAN', 'COMMENT','ID','MULT', 'DIVI', 'MENOR','CONC', 'NEGAC',
+          'DIVIDE','LCM','GCD','LESSEQUAL', 'REPLICARSTRING','UNARYMINUS','SMARTMATCH', 'PONTO', 
+          'SETA','ABRE_CHAVE', 'FECHA_CHAVE', 'PONTO_VIRGULA', 'AND_S', 'OR_S', 'XOR_S', 'FUNCTION', 'ESCALAR']
 
 id_reservados = { 
   'if': 'IF',
     'else': 'ELSE',
+    'times': 'TIMES',
     'elsif': 'ELSIF',
     'while': 'WHILE',
     'loop': 'LOOP',
+    'for': 'FOR',
     'next': 'NEXT',
     'last': 'LAST',
     'redo': 'REDO',
@@ -21,7 +27,6 @@ id_reservados = {
     'state': 'STATE',
     'constant': 'CONSTANT',
     'let': 'LET',
-    'sub': 'SUB',
     'multi': 'MULTI',
     'only': 'ONLY',
     'Any': 'ANY',
@@ -32,33 +37,37 @@ id_reservados = {
     'Int': 'INT',
     'Str': 'STR',
     'Pair': 'PAIR',
-    'List': 'LIST',
     'Map': 'MAP',
     'Set': 'SET',
     'Bag': 'BAG',
-    'and': 'AND',
-    'or': 'OR',
-    'not': 'NOT',
-    'xor': 'XOR',
+    'and': 'AND',   # Tem que retirar?
+    'or': 'OR',     # Tem que retirar?
+    'not': 'NOT',   
+    'xor': 'XOR',   # Tem que retirar?
     'require': 'REQUIRE',
     'need': 'NEED',
     'use': 'USE',
     'unit': 'UNIT',
     'import': 'IMPORT',
     'export': 'EXPORT',
+    'push': 'PUSH',
+    'unshift': 'UNSHIFT',
+    'splice': 'SPLICE',
 }
 
-# Adiciona os tokens das palavras reservadas à lista principal de tokens
 tokens += list(id_reservados.values())
-# Não foi realizado a implementação das seguintes tokens:
-# # t_GDC = r'gdc'
-# t_EQ = r'eq'
-# t_NEQ = r'ne'  
-# pois se forem utilizados, o lexer não irá reconhecer as strings como tokens fixos / palavras reservadas,  
-# Que vai contra a ideia da linguagem Raku.
 
-t_DIVIDE = r'/'
 t_LCM = r'lcm'
+t_GCD = r'gcd'
+t_AND_S = r'&&'
+t_OR_S = r'\|\|'
+t_XOR_S = r'\^\^'
+t_PONTO_VIRGULA = r';'
+t_ABRE_CHAVE = r'\{'
+t_FECHA_CHAVE = r'\}'
+t_SETA = r'->'
+t_PONTO = r'\.'
+t_DIVIDE = r'/'
 t_LESSEQUAL = r'<='
 t_REPLICARSTRING = r'x'
 t_SMARTMATCH = r'~~'
@@ -78,12 +87,12 @@ t_DIF = r'!='
 t_IGUAL = r'='
 t_DECREMENTO = r'\-\-'
 t_POW = r'\*\*'
-t_MT = r'>'
+t_MAIOR = r'>'
 t_LPAREN = r'\('
-t_RPAR = r'\)'
+t_RPAREN = r'\)'
 t_COMMA = r','
 t_KMARK = r'\?'
-t_ignore = r' \t' # Ignora espaços, tabulações e quebras de linha
+t_ignore = ' \t' # Ignora espaços, tabulações e quebras de linha
 
 def t_UNARYMINUS(t):
   r'-"?\d+"?'
@@ -119,6 +128,20 @@ def t_ID(t):
   t.type = id_reservados.get(t.value, 'ID')  # Verifica se é palavra reservada
   return t
 
+def t_ESCALAR(t):
+  r'\$[a-zA-Z_](?:[a-zA-Z0-9_]*([\'-](?!\d|\Z)[a-zA-Z_][a-zA-Z0-9_]*)?)*'
+  t.type = id_reservados.get(t.value, 'ESCALAR')
+  return t
+
+def t_LIST(t):
+  r'@[a-zA-Z_](?:[a-zA-Z0-9_]*([\'-](?!\d|\Z)[a-zA-Z_][a-zA-Z0-9_]*)?)*'
+  t.type = id_reservados.get(t.value, 'LIST')
+  return t
+
+def t_FUNCTION(t):
+    r'function'
+    return t 
+  
 def t_newline(t):
   r'\n+'
   t.lexer.lineno += len(t.value)
@@ -127,8 +150,12 @@ def t_error(t):
   print("Caractere ilegal '%s'" % t.value[0])
   t.lexer.skip(1)
 
+def t_TIMES(t):
+    r'\.times'
+    return t
+
 lexer = lex.lex()  # Cria o analisador léxico
-lexer.input("if while str False my our")  # Define a entrada do analisador léxico
+lexer.input("if while str False my our ( )")  # Define a entrada do analisador léxico
 
 # Realizando analise lexica
 print('{:10s}{:10s}{:10s}{:10s}'.format("Token", "Lexema", "Linha", "Coluna"))
