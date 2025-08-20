@@ -306,6 +306,11 @@ def p_instrucao_expressao(p):
     '''instrucao : exp_2'''
     p[0] = p[1]
 
+def p_instrucao_declaracao(p):
+    '''instrucao : declaracao'''
+    p[0] = p[1]
+
+
 # Definição de 'atribuicao'
 def p_atribuicao(p):
     '''atribuicao : ID IGUAL exp_2'''
